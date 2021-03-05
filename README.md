@@ -1,2 +1,1 @@
-# Nama:Nico Syahputra DN
-# Nim :A11.2019.12292
+Nico Syahputra DN/A11.2019.12292
