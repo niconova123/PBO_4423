@@ -1,7 +1,7 @@
 public class Waktu {
     int detik, menit, jam;
 
-    // konstruktor, mirip spt self.name di python
+    
     public Waktu(int jam, int menit, int detik) {
         this.jam = jam;
         this.menit = menit;
@@ -44,7 +44,7 @@ public class Waktu {
         selisih.menit = selesai.menit - mulai.menit;
         selisih.jam = selesai.jam - mulai.jam;
 
-        // return perbedaan waktu
+        // me-return perbedaan waktu
         return (selisih);
 
     }
