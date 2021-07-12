@@ -1,30 +1,17 @@
 package koneksi;
-
-import com.mysql.*;/*Untuk memanggil package mysql cj jdbc MysqlDataSource pada java */
-import java.sql.Connection;/*Untuk memanggil package sql Connection pada java */
-import java.sql.SQLException;/*/*Untuk memanggil package sql SQLException pada java */
+import java.sql.*;
+import javax.swing.JOptionPane;
 public class Koneksi {
-    static Connection con;
-    static String db_name = "sewabuku";
-    static String db_user = "root";
-    static String db_pass = "";
-    
-    public static Connection GetConnection(){
-        if(con == null){
-            MysqlDataSource data = new MysqlDataSource();
-            data.setDatabaseName(db_name);
-            data.setUser(db_user);
-            data.setPassword(db_pass);
-            
-            try{
-                con = data.getConnection();
-                System.out.println("Database connect");
-            }
-            catch(SQLException e){
-                System.out.println("Database tidak connect");
-            }
+	
+	public static Connection Koneksi() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/sewabuku", "root", ""); // uri, username, password
+            return connection;
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "Gagal Terkoneksi dengan database, periksan konfigurasi database pada src/database/RentDatabase.java");
+            return null;
         }
-                return con;
     }
 }
 
